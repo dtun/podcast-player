@@ -20,18 +20,22 @@ test('renders no podcasts', async () => {
 }, 10_000);
 
 test('renders podcasts', async () => {
-  const [podcast1, podcast2] = [podcastResultBuilder(), podcastResultBuilder()];
+  const podcasts = [
+    podcastResultBuilder(),
+    podcastResultBuilder(),
+    podcastResultBuilder(),
+  ];
 
   server.use(
     http.get(
       'https://rss.applemarketingtools.com/api/v2/us/podcasts/:feed/50/podcasts.json',
-      () => HttpResponse.json({ feed: { results: [podcast1, podcast2] } })
+      () => HttpResponse.json({ feed: { results: podcasts } })
     )
   );
 
   render(<Add />);
 
-  for (const podcast of [podcast1, podcast2]) {
+  for (const podcast of podcasts) {
     expect(await screen.findByText(podcast.name)).toBeTruthy();
   }
 }, 10_000);
