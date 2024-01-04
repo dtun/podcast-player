@@ -8,6 +8,9 @@
     "!**/node_modules/**",
     "!**/babel.config.js",
     "!**/jest.setup.js",
-    "!**/.expo/**"
+    "!**/.expo/**",
+    "!**/mocks/**",
+    "!**/test-utils/**",
+    "!**/builders/**"
   ]
 }

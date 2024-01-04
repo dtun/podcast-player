@@ -1,15 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 
 import { Text, View } from '../components/Themed';
+import { usePodcasts } from '../queries/usePodcasts';
 
 export default function AddScreen() {
+  const podcasts = usePodcasts();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Add</Text>
-
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+      <FlatList
+        data={podcasts.data?.feed.results}
+        ListEmptyComponent={
+          podcasts.isFetching ? (
+            <Text>Loading Podcasts...</Text>
+          ) : (
+            <Text>No Podcasts</Text>
+          )
+        }
+        renderItem={({ item }) => <Text style={styles.title}>{item.name}</Text>}
+      />
     </View>
   );
 }
