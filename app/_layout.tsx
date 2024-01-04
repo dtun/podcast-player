@@ -20,6 +20,20 @@ export default function TabLayout() {
         name="index"
         options={{
           title: '',
+          headerLeft: () => (
+            <Link href="/settings" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    color={Colors[colorScheme ?? 'light'].text}
+                    name="cog"
+                    size={25}
+                    style={{ marginRight: 12, opacity: pressed ? 0.5 : 1 }}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
           headerRight: () => (
             <Link href="/add" asChild>
               <Pressable>
@@ -37,6 +51,7 @@ export default function TabLayout() {
         }}
       />
       <Stack.Screen name="add" options={{ title: 'Add Podcast' }} />
+      <Stack.Screen name="settings" options={{ title: 'Settings' }} />
     </Stack>
   );
 }
