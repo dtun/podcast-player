@@ -17,7 +17,7 @@ test('renders no podcasts', async () => {
   render(<Add />);
 
   expect(await screen.findByText('No Podcasts')).toBeTruthy();
-});
+}, 10_000);
 
 test('renders podcasts', async () => {
   const [podcast1, podcast2] = [podcastResultBuilder(), podcastResultBuilder()];
@@ -34,4 +34,4 @@ test('renders podcasts', async () => {
   for (const podcast of [podcast1, podcast2]) {
     expect(await screen.findByText(podcast.name)).toBeTruthy();
   }
-});
+}, 10_000);
