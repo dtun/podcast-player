@@ -4,7 +4,7 @@ import { Pressable, useColorScheme } from 'react-native';
 
 import Colors from '../constants/Colors';
 
-export default function TabLayout() {
+export default function Layout() {
   const colorScheme = useColorScheme();
 
   return (
