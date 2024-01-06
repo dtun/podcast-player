@@ -11,12 +11,10 @@ export function AddPodcastItem({ item }: { item: PodcastResult }) {
   return (
     <Layout style={styles.layout}>
       <Avatar source={{ uri: item.artworkUrl100 }} size="large" />
-      <Layout>
-        <Text>{item.name}</Text>
-        <Button onPress={() => toggleFollowing(item.id)}>
-          {isFollowing ? 'Following' : 'Follow'}
-        </Button>
-      </Layout>
+      <Text>{item.name}</Text>
+      <Button appearance="ghost" onPress={() => toggleFollowing(item.id)}>
+        {isFollowing ? 'Following' : 'Follow'}
+      </Button>
     </Layout>
   );
 }
@@ -24,7 +22,7 @@ export function AddPodcastItem({ item }: { item: PodcastResult }) {
 const styles = StyleSheet.create({
   layout: {
     flexDirection: 'row',
-    padding: 16,
+    padding: 8,
     alignItems: 'center',
     justifyContent: 'space-between',
   },

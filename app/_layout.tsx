@@ -14,7 +14,10 @@ export default function Layout() {
   const colorScheme = useColorScheme();
 
   return (
-    <ApplicationProvider {...eva} theme={colorScheme ?? eva.light}>
+    <ApplicationProvider
+      {...eva}
+      theme={colorScheme === 'dark' ? eva.dark : eva.light}
+    >
       <Preloader />
       <QueryClientProvider client={client}>
         <Stack
