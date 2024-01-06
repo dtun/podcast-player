@@ -1,13 +1,13 @@
 import { atom } from 'jotai';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const favoritesInitialValue: string[] = [];
+const followingInitialValue: string[] = [];
 
-const favoritesKey = 'favoritesKey';
+const followingKey = 'followingKey';
 
 const atomWithAsyncStorage = (
-  key = favoritesKey,
-  initialValue = favoritesInitialValue
+  key = followingKey,
+  initialValue = followingInitialValue
 ) => {
   const baseAtom = atom(initialValue);
 
@@ -34,6 +34,6 @@ const atomWithAsyncStorage = (
   return derivedAtom;
 };
 
-const favoritesAtom = atomWithAsyncStorage();
+const followingAtom = atomWithAsyncStorage();
 
-export { favoritesAtom, favoritesKey };
+export { followingAtom, followingKey };

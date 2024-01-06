@@ -1,9 +1,9 @@
 import { useAtomValue } from 'jotai';
 
-import { favoritesAtom } from '../state/favorites';
+import { followingAtom } from '../state/following';
 
 function Preloader() {
-  useAtomValue(favoritesAtom); // Trigger the "onMount" function that will load the data from the store
+  useAtomValue(followingAtom); // Trigger the "onMount" function that will load the data from the store
 
   return null;
 }

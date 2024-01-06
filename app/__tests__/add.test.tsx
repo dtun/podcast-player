@@ -7,7 +7,7 @@ import { podcastResultBuilder } from '../../builders/podcastResult';
 import { client, render, screen, userEvent } from '../../test-utils';
 import { baseUrl } from '../../constants/PodcastsApi';
 import Add from '../add';
-import { favoritesKey } from '../../state/favorites';
+import { followingKey } from '../../state/following';
 
 afterEach(() => {
   client.clear();
@@ -71,13 +71,12 @@ test('can follow and stop following podcasts', async () => {
   expect(await screen.findAllByText('Follow')).toHaveLength(podcasts.length);
 }, 10_000);
 
-test('can use persisted favorites', async () => {
+test('can use persisted following', async () => {
   const podcasts = [podcastResultBuilder(), podcastResultBuilder()];
   const [podcast1] = podcasts;
 
   jest.spyOn(AsyncStorage, 'getItem').mockImplementationOnce((key) => {
-    if (key !== favoritesKey) return Promise.resolve(null);
-
+    if (key !== followingKey) return Promise.resolve(null);
     return Promise.resolve(JSON.stringify([podcast1.id]));
   });
 
