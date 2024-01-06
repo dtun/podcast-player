@@ -3,7 +3,7 @@ import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ApplicationProvider } from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
 
-const client = new QueryClient();
+export const client = new QueryClient();
 
 const AllTheProviders = ({ children }: { children: React.ReactElement }) => {
   return (

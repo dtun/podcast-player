@@ -4,7 +4,9 @@ import { Pressable, useColorScheme } from 'react-native';
 import { QueryClientProvider, QueryClient } from '@tanstack/react-query';
 import { ApplicationProvider } from '@ui-kitten/components';
 import * as eva from '@eva-design/eva';
-import Colors from 'constants/Colors';
+
+import Colors from '../constants/Colors';
+import { Preloader } from '../components/Preloader';
 
 const client = new QueryClient();
 
@@ -13,6 +15,7 @@ export default function Layout() {
 
   return (
     <ApplicationProvider {...eva} theme={colorScheme ?? eva.light}>
+      <Preloader />
       <QueryClientProvider client={client}>
         <Stack
           screenOptions={{

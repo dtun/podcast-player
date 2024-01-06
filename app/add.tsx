@@ -1,9 +1,10 @@
 import { FlatList, StyleSheet } from 'react-native';
 
+import { AddPodcastItem } from '../components/AddPodcastItem';
 import { Text, View } from '../components/Themed';
 import { usePodcasts } from '../queries/usePodcasts';
 
-export default function AddScreen() {
+export function AddScreen() {
   const podcasts = usePodcasts();
 
   return (
@@ -17,7 +18,7 @@ export default function AddScreen() {
             <Text>No Podcasts</Text>
           )
         }
-        renderItem={({ item }) => <Text style={styles.title}>{item.name}</Text>}
+        renderItem={({ item }) => <AddPodcastItem item={item} />}
       />
     </View>
   );
@@ -29,13 +30,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
 });
+
+export default AddScreen;
