@@ -1,19 +1,21 @@
 {
   "preset": "jest-expo",
-  "setupFilesAfterEnv": ["./jest.setupFilesAfterEnv.js"],
+  "setupFilesAfterEnv": ["./jest.setup.js"],
   "collectCoverage": true,
   "collectCoverageFrom": [
     "**/*.{js,jsx,ts,tsx}",
     "!**/coverage/**",
     "!**/node_modules/**",
     "!**/babel.config.js",
+    "!**/metro.config.js",
     "!**/jest.setup.js",
     "!**/.expo/**",
     "!**/mocks/**",
     "!**/test-utils/**",
-    "!**/builders/**"
+    "!**/builders/**",
+    "!**/expo-env.d.ts"
   ],
   "transformIgnorePatterns": [
-    "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg|@ui-kitten)"
+    "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|@unimodules/.*|unimodules|sentry-expo|react-native-svg|@ui-kitten)"
   ]
 }
